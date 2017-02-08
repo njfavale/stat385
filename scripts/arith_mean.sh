@@ -6,11 +6,12 @@ arith_mean() {
   
   sum=0				# Hold summation
   fname=$1			# File to take estimate of
-  count=$(wc -1 < "$fname")	# count number of lines
+  count=0	                # Hold count of number of lines
 
   while read line
   do
     sum=$((sum+line))		# Sum
+    count=$((count+1))
   done < "$fname"
 
   if [ "$count" != 0 ]; then
